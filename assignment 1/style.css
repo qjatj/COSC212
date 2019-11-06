@@ -1,0 +1,46 @@
+#map{
+    align: center;
+    width: 590px;
+    height:400px;
+    padding: 0px;
+}
+
+.popupimg {
+    height: 90px;
+    width: 150px;
+}
+
+.popuptext {
+    padding: 0;
+    width: 150px;
+}
+
+.side {
+    float: left;
+    padding: 10px;
+}
+
+.clear {
+    clear: left;
+}
+
+.contact {
+    padding: 10px;
+}
+
+.roomheader {
+    font-size: 20px;
+}
+
+button {
+    float: right;
+}
+
+input {
+    float: right;
+}
+
+.side2 {
+    float: right;
+    padding: 10px;
+}

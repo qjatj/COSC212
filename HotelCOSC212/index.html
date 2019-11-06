@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+Hotel COSC212 - An Assignment 1 solution
+Nick Meek, September 2018
+-->
+<head>
+    <meta charset="utf-8">
+    <title>RoomManager: COSC212 (2018)</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./js/leaflet/leaflet.css">
+
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script src="./js/leaflet/leaflet.js"></script>
+    <script src="js/Cookies.js"></script>
+    <script src="js/Constructors.js"></script>
+    <script src="./js/RoomManager.js"></script>
+    <script src="./js/Map.js"></script>
+</head>
+
+<body>
+<h1>Hotel COSC212</h1>
+<nav>
+    <ul>
+        <li><a>Home</a></li>
+        <li><a href="admin.html">Admin</a></li>
+    </ul>
+</nav>
+<form id="bookingForm">
+    <h2>Book Your Stay</h2>
+    <fieldset>
+        <legend>Your Details</legend>
+        <ul>
+            <li><input id="guestName" name="guestName" type="text" placeholder="Your name"></li>
+        </ul>
+    </fieldset>
+    <fieldset id="dates">
+        <!-- Using select lists allows people to select 'unreal' dates (e.g. Feb 30) however this could be
+        detected in the JS check script -->
+        <legend>When would you like to stay with us?</legend>
+        <ul>
+            <li>Arrive:
+                <select name="arriveDay" id="arriveDay">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select name="arriveMonth" id="arriveMonth">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                </select>
+
+
+                <select name="arriveYear" id="arriveYear">
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+
+                </select>
+            </li>
+            <li>Leave:
+                <select name="leaveDay" id="leaveDay">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <select name="leaveMonth" id="leaveMonth">
+                    <option value="0">January</option>
+                    <option value="1">February</option>
+                    <option value="2">March</option>
+                    <option value="3">April</option>
+                    <option value="4">May</option>
+                    <option value="5">June</option>
+                    <option value="6">July</option>
+                    <option value="7">August</option>
+                    <option value="8">September</option>
+                    <option value="9">October</option>
+                    <option value="10">November</option>
+                    <option value="11">December</option>
+                </select>
+
+
+                <select name="leaveYear" id="leaveYear">
+                    <option value="2018">2018</option>
+                    <option value="2019">2019</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+
+                </select>
+            </li>
+        </ul>
+        <p id="errors"></p>
+        <p> <input type="submit" id="makeBooking" value="Book Room"></p>
+    </fieldset>
+</form>
+
+<section id="output"><!--Hotel room data will be put here by JS--></section>
+
+<aside id="roomType"><!--Room details will be put here by JS--></aside>
+
+<section id="pendingBookings"><!--Pending booking information (held on the cookie) will be put here by JS--></section>
+
+<div id="map"><!--Map will be put here by Leaflet.js--></div>
+
+<footer>
+    <p>This website is part of a University assignment. No services are being offered and no money will be accepted. You
+        cannot book a hotel room through this website; Hotel COSC212 does not exist.</p>
+</footer>
+</body>
+</html>

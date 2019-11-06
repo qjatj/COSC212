@@ -1,0 +1,92 @@
+/*
+* Hotel COSC212 - An Assignment 1 solution
+* Nick Meek, September 2018
+ */
+
+
+/* Extremely basic css, you would be expected to replace this. */
+html{
+    background-color:lightgoldenrodyellow;
+    color:black;
+    font-family: sans-serif;
+    margin: 25px auto;
+    text-align: center;
+    min-width: 1140px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+#bookingForm{
+    width:300px;
+    border:1px solid;
+    padding: 10px;
+    display:inline-block;
+    margin: 0;
+    vertical-align: top;
+    text-align: left;
+}
+
+form ul{
+    margin: 0;
+    padding:0;
+    list-style-type: none;
+}
+
+fieldset + fieldset{
+    margin-top: 30px;
+}
+
+#output{
+    border: 1px solid;
+    padding:20px;
+    display:inline-block;
+    margin: 0 5px;
+    vertical-align: top;
+    text-align: left;
+}
+
+#roomType{
+    width:200px;
+    min-height: 100px;
+    border: 1px solid;
+    padding:20px;
+    display:inline-block;
+    margin: 0 5px;
+    vertical-align: top;
+    text-align: left;
+}
+
+#output td{
+    padding:2px 5px;
+}
+
+#map{
+    border:2px solid;
+    height:400px;
+    width:80%;
+    margin: 25px auto;
+}
+
+.leaflet-popup-content {
+    width: 160px;
+}
+
+#pendingBookings {
+    text-align: left;
+}
+
+footer {
+    width: 50%;
+    margin: 30px auto;
+}
+
+/*** Admin Page ***/
+#bookings {
+    text-align: left;
+}
+
+#bookings dd {
+    margin-bottom: 10px;
+}

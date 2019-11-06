@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9ccf1d04-4fb9-4527-a023-41f5ce67b05b" name="Sapphire" url="http://sapphire.otago.ac.nz">
+        <fileTransfer host="sapphire.otago.ac.nz" port="22" rootFolder="/devel/bekim/projects" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
